@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package tests;
+
+option go_package = "transfrom";
+
+message TransferRequest {
+    string from_user = 1;
+    string to_user = 2;
+    int32 amount = 3;
+}
+
+message Message {
+    string reason = 1;
+}
+
+service TransferService {
+    rpc TransIn( TransferRequest) returns (Message) {}
+    rpc TransOut( TransferRequest) returns (Message) {}
+}
